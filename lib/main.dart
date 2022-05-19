@@ -25,15 +25,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Shopify Inventory Tracking',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         fontFamily: 'Raleway',
         primarySwatch: Colors.lightGreen,
       ),
@@ -44,15 +35,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -105,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
             'groupname': groups[groupID]
           })
           .then((value) => print("Item Added"))
+          // ignore: avoid_print
           .catchError((error) => print("Failed to add item: $error"));
     } catch (e) {
       Text(
@@ -181,7 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 100, 226, 109)),
+                    primary: const Color.fromARGB(255, 100, 226, 109)),
                 onPressed: () {
                   if (addForm.currentState!.validate()) {
                     var results = addWarehouse(warehouse, state, city);
@@ -206,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Button that closes add / delete menu //
         TextButton(
           style: TextButton.styleFrom(
-            primary: Color.fromARGB(
+            primary: const Color.fromARGB(
                 255, 22, 20, 20), // This is a custom color variable
           ),
           onPressed: () {
@@ -374,7 +357,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 }
                 return DropdownButtonFormField<int>(
-                  hint: Text("Group"),
+                  hint: const Text("Group"),
                   validator: (value) => value == null ? 'No Entry' : null,
                   onSaved: (newValue) => groupID,
                   onChanged: (value) {
@@ -438,7 +421,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 100, 226, 109)),
+                    primary: const Color.fromARGB(255, 100, 226, 109)),
                 onPressed: () {
                   if (addForm.currentState!.validate()) {
                     var results = updateUser(
@@ -464,7 +447,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Button that closes add / delete menu //
         TextButton(
           style: TextButton.styleFrom(
-            primary: Color.fromARGB(
+            primary: const Color.fromARGB(
                 255, 22, 20, 20), // This is a custom color variable
           ),
           onPressed: () {
@@ -580,7 +563,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 }
                 return DropdownButtonFormField<int>(
-                  hint: Text("Group"),
+                  hint: const Text("Group"),
                   validator: (value) => value == null ? 'No Entry' : null,
                   onSaved: (newValue) => groupID,
                   onChanged: (value) {
@@ -644,7 +627,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 100, 226, 109)),
+                    primary: const Color.fromARGB(255, 100, 226, 109)),
                 onPressed: () {
                   if (addForm.currentState!.validate()) {
                     var results =
@@ -670,7 +653,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Button that closes add / delete menu //
         TextButton(
           style: TextButton.styleFrom(
-            primary: Color.fromARGB(
+            primary: const Color.fromARGB(
                 255, 22, 20, 20), // This is a custom color variable
           ),
           onPressed: () {
@@ -736,7 +719,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 100, 226, 109)),
+                    primary: const Color.fromARGB(255, 100, 226, 109)),
                 onPressed: () {
                   if (delForm.currentState!.validate()) {
                     delUser(itemName, groupID);
@@ -753,8 +736,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // Button for closing //
         TextButton(
           style: TextButton.styleFrom(
-            primary:
-                Color.fromARGB(255, 0, 0, 0), // This is a custom color variable
+            primary: const Color.fromARGB(
+                255, 0, 0, 0), // This is a custom color variable
           ),
           onPressed: () {
             try {
@@ -819,26 +802,27 @@ class _MyHomePageState extends State<MyHomePage> {
     // Than puts a column in each card that you can fill with text widgets //
     return Container(
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 100, 226, 109),
+          color: const Color.fromARGB(255, 100, 226, 109),
           backgroundBlendMode: BlendMode.srcOver,
           border: Border.all(
-              color: Color.fromARGB(255, 204, 204, 204),
+              color: const Color.fromARGB(255, 204, 204, 204),
               width: 10,
               style: BorderStyle.solid)),
       child: Center(
         child: Card(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: Column(
             children: [
               Container(
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   child: Center(
                       child: Text(
                     document['name'],
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
                   ))),
               Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: Center(child: Text(document['price']))),
               Row(
                 // Extra info button that calls function infopage //
@@ -851,7 +835,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           context: context,
                           builder: (context) => infoPage(),
                         ),
-                        icon: Icon(Icons.info),
+                        icon: const Icon(Icons.info),
                         //color: maroon,
                       ),
                     ],
@@ -869,7 +853,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2));
-    Timer(Duration(seconds: 1), () {});
+    Timer(const Duration(seconds: 1), () {});
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -885,7 +869,7 @@ class _MyHomePageState extends State<MyHomePage> {
             style: const TextStyle(
                 color: Colors.white, fontSize: 30, fontFamily: 'RobotoMono'),
           ),
-          backgroundColor: Color.fromARGB(255, 100, 226, 109),
+          backgroundColor: const Color.fromARGB(255, 100, 226, 109),
           leading: PopupMenuButton<String>(
             icon: const Icon(
               Icons.shopping_bag,
@@ -951,7 +935,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // Builder for the steambuilder, builds the items that will be displayed //
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Text("Loading");
+              return const Text("Loading");
             } else {
               // Using listview to display the contents //
               return ListView.builder(
@@ -965,28 +949,6 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             }
           }),
-
-      //Center(
-      // Center is a layout widget. It takes a single child and positions it
-      // in the middle of the parent.
-      // child: Column(
-      // Column is also a layout widget. It takes a list of children and
-      // arranges them vertically. By default, it sizes itself to fit its
-      // children horizontally, and tries to be as tall as its parent.
-      //
-      // Invoke "debug painting" (press "p" in the console, choose the
-      // "Toggle Debug Paint" action from the Flutter Inspector in Android
-      // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-      // to see the wireframe for each widget.
-      //
-      // Column has various properties to control how it sizes itself and
-      // how it positions its children. Here we use mainAxisAlignment to
-      // center the children vertically; the main axis here is the vertical
-      // axis because Columns are vertical (the cross axis would be
-      // horizontal).
-      //  mainAxisAlignment: MainAxisAlignment.center,
-      //  ),
-      // ),
     );
   }
 }
