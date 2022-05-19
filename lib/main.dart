@@ -314,7 +314,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
             // One of the fields that takes user input and assigns it to local var //
 
-            // One of the fields that takes user input and assigns it to local var //
             TextFormField(
                 validator: (value) {
                   if (value!.isEmpty) {
